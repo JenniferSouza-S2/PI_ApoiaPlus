@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vagas - Apoia+</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="home.html" class="nav-item home-btn">Home</a>
+            <a href="#" id="nav-vagas" class="nav-item">Vagas</a>
+
+            <div class="logo">
+                <img src="imagens/Apoia+logo.png" alt="Logo">
+            </div>
+
+            <a href="#" id="doar-btn" class="nav-item">Doar</a>
+           <a href="#" id="login-btn" class="nav-item">Login</a>
+        </div>
+    </nav>
+
+    <!-- Seção de Vagas -->
+    <section style="padding: 80px 20px 60px; background: #fafafa;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-size: 32px; font-weight: 700; color: #333; text-align: center; margin-bottom: 15px;">Vagas Disponíveis</h2>
+            <p style="font-size: 16px; color: #666; text-align: center; margin-bottom: 50px;">
+                Descubra as oportunidades de voluntariado oferecidas pelas nossas ONGs parceiras.
+            </p>
+
+            <div id="vagas-list" class="vagas-grid">
+              
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-sections">
+                <!-- Abrir Ticket -->
+                <div class="footer-about">
+                    <h3 class="footer-section-title">Abrir Ticket de Suporte</h3>
+                    <form id="ticket-form" style="display: flex; flex-direction: column; gap: 10px;">
+                        <input type="text" id="ticket-assunto" name="assunto" placeholder="Assunto do ticket" required style="padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;">
+                        <textarea id="ticket-descricao" name="descricao" placeholder="Descreva seu problema..." rows="3" required style="padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px; font-family: inherit;"></textarea>
+                        <input type="email" id="ticket-email" name="email" placeholder="Seu email" required style="padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;">
+                        <button type="submit" style="padding: 10px; background: linear-gradient(135deg, #ff47a3 0%, #ff7b00 100%); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 12px;">Enviar Ticket</button>
+                    </form>
+                </div>
+                <div class="footer-contact">
+                    <h3 class="footer-section-title">Contate-nos</h3>
+                    <p class="footer-contact-item">
+                        <strong>Email:</strong>
+                        <a href="mailto:ApoiaSuporte@gmail.com">ApoiaSuporte@gmail.com</a>
+                    </p>
+                    <p class="footer-contact-item">
+                        <strong>Telefone:</strong>
+                        <a href="tel:+5511950028922">+55 11 95002-8922</a>
+                    </p>
+                </div>
+            </div>
+
+         
+            <div class="footer-divider"></div>
+
+            <!-- Logo e Copyright no final -->
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <img src="imagens/Apoia+logo.png" alt="Logo Apoia+" class="footer-logo">
+                    <span class="footer-text">Apoia+</span>
+                </div>
+                <p class="footer-copyright">&copy; 2025 Apoia+. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Popup login -->
+    <div id="login-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        
+        <h2 class="modal-title">Bem-vindo!</h2>
+
+        <div class="tab-buttons">
+            <button class="tab-btn" data-tab="login">Entrar</button>
+            <button class="tab-btn active" data-tab="register">Cadastrar</button>
+        </div>
+
+        <form id="register-form" class="tab-form active-form">
+            <div class="form-group type-select">
+                <input type="radio" id="voluntario" name="account_type" value="voluntario" checked>
+                <label for="voluntario">Voluntário</label>
+                <input type="radio" id="ong" name="account_type" value="ong">
+                <label for="ong">ONG</label>
+            </div>
+
+            <div class="form-group">
+                <label for="reg-nome">Nome Completo</label>
+                <input type="text" id="reg-nome" name="nome" placeholder="Seu nome" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reg-email">Email</label>
+                <input type="email" id="reg-email" name="email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reg-cnpj" id="cnpj-label">CNPJ (apenas para ONG)</label>
+                <input type="text" id="reg-cnpj" name="cnpj" placeholder="00.000.000/0000-00">
+                <div id="reg-ong-name" style="margin-top: 5px; color: #667eea; font-size: 14px;"></div>
+            </div>
+
+            <div class="ong-dropdown-group" style="display: none;">
+            </div>
+
+            <div class="form-group">
+                <label for="reg-senha">Senha</label>
+                <input type="password" id="reg-senha" name="senha" placeholder="Crie uma senha" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Cadastrar</button>
+        </form>
+
+        <form id="login-form" class="tab-form">
+            <div class="form-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="login-senha">Senha</label>
+                <input type="password" id="login-senha" name="senha" placeholder="Sua senha" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Entrar</button>
+
+            <div class="forgot-password-link">
+                <a href="#" onclick="abrirModalEsqueceuSenha(event)">Esqueci a senha</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <!-- Modal Doação -->
+    <div id="doacao-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2 class="modal-title">Faça sua Doação</h2>
+
+        <div class="donation-tabs">
+            <button class="tab-btn active" data-tab="pix">PIX</button>
+            <button class="tab-btn" data-tab="cartao">Cartão de Crédito</button>
+        </div>
+
+        <!-- PIX -->
+        <div class="tab-form active-form" id="pix">
+            <p>Escaneie o QR Code para doar via PIX:</p>
+            <canvas id="qrcode"></canvas>
+            <button id="gerar-cupom">Gerar Cupom Fiscal</button>
+        </div>
+
+        <!-- Cartão -->
+        <div class="tab-form" id="cartao">
+            <form id="cartao-form">
+                <div class="form-group">
+                    <label for="numero-cartao">Número do Cartão</label>
+                    <input type="text" id="numero-cartao" placeholder="0000 0000 0000 0000" required>
+                </div>
+                <div class="form-group">
+                    <label for="validade-cartao">Validade</label>
+                    <input type="text" id="validade-cartao" placeholder="MM/AA" required>
+                </div>
+                <div class="form-group">
+                    <label for="cvv-cartao">CVV</label>
+                    <input type="text" id="cvv-cartao" placeholder="123" required>
+                </div>
+                <button type="submit" class="submit-btn">Doar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
+    <script src="vagas.js"></script>
+</body>
+</html>

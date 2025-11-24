@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doação - Apoia+</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="home.html" class="nav-item home-btn">Home</a>
+            <a href="#" id="nav-vagas" class="nav-item">Vagas</a>
+
+            <div class="logo">
+                <img src="imagens/Apoia+logo.png" alt="Logo">
+            </div>
+
+            <a href="#" id="doar-btn" class="nav-item">Doar</a>
+           <a href="#" id="login-btn" class="nav-item">Login</a>
+        </div>
+    </nav>
+
+    <!-- Seção de Doação -->
+    <section style="padding: 80px 20px 60px; background: #fafafa; min-height: 100vh;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h1 style="font-size: 48px; font-weight: 700; color: #333; text-align: center; margin-bottom: 15px;">Fazer uma Doação</h1>
+            <p style="font-size: 16px; color: #666; text-align: center; margin-bottom: 50px;">
+                Sua doação ajuda a transformar vidas. Escolha um valor e contribua com as ONGs parceiras.
+            </p>
+
+            <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
+
+                <!-- Abas de Método de Pagamento -->
+                <div style="display: flex; gap: 20px; margin-bottom: 40px; border-bottom: 2px solid #f0f0f5; padding-bottom: 20px;">
+                    <button class="tab-doacao active" data-tab="valores" style="background: none; border: none; color: #333; font-size: 16px; font-weight: 600; cursor: pointer; padding-bottom: 10px; border-bottom: 3px solid #ff47a3;">
+                         Escolher Valor
+                    </button>
+                    <button class="tab-doacao" data-tab="frequencia" style="background: none; border: none; color: #999; font-size: 16px; font-weight: 600; cursor: pointer; padding-bottom: 10px;">
+                         Frequência
+                    </button>
+                    <button class="tab-doacao" data-tab="dados" style="background: none; border: none; color: #999; font-size: 16px; font-weight: 600; cursor: pointer; padding-bottom: 10px;">
+                         Seus Dados
+                    </button>
+                    <button class="tab-doacao" data-tab="pagamento" style="background: none; border: none; color: #999; font-size: 16px; font-weight: 600; cursor: pointer; padding-bottom: 10px;">
+                         Pagamento
+                    </button>
+                </div>
+
+                <!-- Passo 1: Escolher Valor -->
+                <div class="tab-content-doacao active" id="valores">
+                    <h3 style="font-size: 20px; color: #333; margin-bottom: 30px; text-align: center;">Escolha um valor de doação:</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-bottom: 40px;">
+                        <button class="btn-valor-doacao" data-valor="5" style="padding: 20px; border: 2px solid #ddd; border-radius: 8px; background: white; cursor: pointer; transition: all 0.3s ease;">
+                            <div style="font-size: 28px; font-weight: 700; color: #ff47a3;">R$ 5</div>
+                            <div style="font-size: 12px; color: #999; margin-top: 5px;">Valor Mínimo</div>
+                        </button>
+                        <button class="btn-valor-doacao" data-valor="10" style="padding: 20px; border: 2px solid #ddd; border-radius: 8px; background: white; cursor: pointer; transition: all 0.3s ease;">
+                            <div style="font-size: 28px; font-weight: 700; color: #ff47a3;">R$ 10</div>
+                            <div style="font-size: 12px; color: #999; margin-top: 5px;">Popular</div>
+                        </button>
+                        <button class="btn-valor-doacao" data-valor="20" style="padding: 20px; border: 2px solid #ddd; border-radius: 8px; background: white; cursor: pointer; transition: all 0.3s ease;">
+                            <div style="font-size: 28px; font-weight: 700; color: #ff47a3;">R$ 20</div>
+                            <div style="font-size: 12px; color: #999; margin-top: 5px;">Recomendado</div>
+                        </button>
+                        <button class="btn-valor-doacao" data-valor="50" style="padding: 20px; border: 2px solid #ddd; border-radius: 8px; background: white; cursor: pointer; transition: all 0.3s ease;">
+                            <div style="font-size: 28px; font-weight: 700; color: #ff47a3;">R$ 50</div>
+                            <div style="font-size: 12px; color: #999; margin-top: 5px;">Generoso</div>
+                        </button>
+                    </div>
+
+                    <div style="margin-bottom: 30px;">
+                        <label style="display: block; font-size: 14px; color: #666; margin-bottom: 10px;">Ou digite um valor personalizado:</label>
+                        <input type="number" id="valor-personalizado" placeholder="Digite o valor em reais" min="5" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 14px; font-family: 'Poppins', sans-serif;">
+                    </div>
+
+                    <div style="text-align: center; padding: 20px; background: #f9f9f9; border-radius: 8px; margin-bottom: 30px;">
+                        <p style="font-size: 14px; color: #999; margin: 0;">Valor selecionado:</p>
+                        <p style="font-size: 32px; font-weight: 700; color: #ff47a3; margin: 10px 0 0 0;" id="valor-display">R$ 0</p>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="proximaPasso('frequencia')" style="width: 100%; padding: 14px; margin-top: 20px;">
+                        Próximo →
+                    </button>
+                </div>
+
+                <!-- Passo 2: Frequência de Doação -->
+                <div class="tab-content-doacao" id="frequencia" style="display: none;">
+                    <h3 style="font-size: 20px; color: #333; margin-bottom: 30px; text-align: center;">Escolha a frequência da doação:</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px;">
+                        <button class="btn-frequencia active" data-frequencia="unica" style="padding: 20px; border: 2px solid #ff47a3; border-radius: 8px; background: #fff5fa; cursor: pointer; transition: all 0.3s ease;">
+                            <div style="font-size: 20px; margin-bottom: 10px;">🔄</div>
+                            <div style="font-size: 16px; font-weight: 600; color: #333;">Única</div>
+                            <div style="font-size: 12px; color: #999; margin-top: 5px;">Doação única</div>
+                        </button>
+                        <button class="btn-frequencia" data-frequencia="mensal" style="padding: 20px; border: 2px solid #ddd; border-radius: 8px; background: white; cursor: pointer; transition: all 0.3s ease;">
+                            <div style="font-size: 20px; margin-bottom: 10px;">📅</div>
+                            <div style="font-size: 16px; font-weight: 600; color: #333;">Mensal</div>
+                            <div style="font-size: 12px; color: #999; margin-top: 5px;">Renovada todo mês</div>
+                        </button>
+                        <button class="btn-frequencia" data-frequencia="semestral" style="padding: 20px; border: 2px solid #ddd; border-radius: 8px; background: white; cursor: pointer; transition: all 0.3s ease;">
+                            <div style="font-size: 20px; margin-bottom: 10px;">📆</div>
+                            <div style="font-size: 16px; font-weight: 600; color: #333;">Semestral</div>
+                            <div style="font-size: 12px; color: #999; margin-top: 5px;">A cada 6 meses</div>
+                        </button>
+                    </div>
+
+                    <div style="display: flex; gap: 20px;">
+                        <button class="btn btn-secondary" onclick="passoAnterior('valores')" style="flex: 1; padding: 14px;">
+                            ← Voltar
+                        </button>
+                        <button class="btn btn-primary" onclick="proximaPasso('dados')" style="flex: 1; padding: 14px;">
+                            Próximo →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Passo 3: Dados Pessoais -->
+                <div class="tab-content-doacao" id="dados" style="display: none;">
+                    <h3 style="font-size: 20px; color: #333; margin-bottom: 30px; text-align: center;">Seus Dados</h3>
+                    
+                    <div style="display: grid; gap: 20px; margin-bottom: 40px;">
+                            <div>
+                            <label style="display: block; font-size: 14px; color: #333; margin-bottom: 8px; font-weight: 600;">Nome Completo</label>
+                            <input type="text" id="nome-doador" placeholder="Digite seu nome completo" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 14px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                        </div>
+                            <div>
+                                <label style="display: block; font-size: 14px; color: #333; margin-bottom: 8px; font-weight: 600;">Escolher ONG (obrigatório)</label>
+                                <select id="select-ong" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 14px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                                    <option value="">-- Selecione uma ONG --</option>
+                                </select>
+                            </div>
+                        <div>
+                            <label style="display: block; font-size: 14px; color: #333; margin-bottom: 8px; font-weight: 600;">Email</label>
+                            <input type="email" id="email-doador" placeholder="seu@email.com" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 14px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 14px; color: #333; margin-bottom: 8px; font-weight: 600;">Telefone (Opcional)</label>
+                            <input type="tel" id="telefone-doador" placeholder="(11) 99999-9999" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 14px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 20px;">
+                        <button class="btn btn-secondary" onclick="passoAnterior('frequencia')" style="flex: 1; padding: 14px;">
+                            ← Voltar
+                        </button>
+                        <button class="btn btn-primary" onclick="proximaPasso('pagamento')" style="flex: 1; padding: 14px;">
+                            Próximo →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Passo 4: Método de Pagamento -->
+                <div class="tab-content-doacao" id="pagamento" style="display: none;">
+                    <h3 style="font-size: 20px; color: #333; margin-bottom: 30px; text-align: center;">Escolha o Método de Pagamento</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px;">
+                        <button class="btn-pagamento active" data-pagamento="pix" style="padding: 20px; border: 2px solid #ff47a3; border-radius: 8px; background: #fff5fa; cursor: pointer; transition: all 0.3s ease;">
+                            <div style="font-size: 24px; margin-bottom: 10px;">📱</div>
+                            <div style="font-size: 16px; font-weight: 600; color: #333;">PIX</div>
+                            <div style="font-size: 12px; color: #999; margin-top: 5px;">QR Code em tempo real</div>
+                        </button>
+                        <button class="btn-pagamento" data-pagamento="cartao" style="padding: 20px; border: 2px solid #ddd; border-radius: 8px; background: white; cursor: pointer; transition: all 0.3s ease;">
+                            <div style="font-size: 24px; margin-bottom: 10px;">💳</div>
+                            <div style="font-size: 16px; font-weight: 600; color: #333;">Cartão de Crédito</div>
+                            <div style="font-size: 12px; color: #999; margin-top: 5px;">Visa, Mastercard</div>
+                        </button>
+                    </div>
+
+                    <!-- Formulário PIX -->
+                    <div id="form-pix" style="display: block; margin-bottom: 40px;">
+                        <h4 style="font-size: 16px; color: #333; margin-bottom: 20px;">Escaneie o QR Code para realizar o pagamento:</h4>
+                        <div id="qrcode" style="display: flex; justify-content: center; margin-bottom: 20px;"></div>
+                        <p style="text-align: center; font-size: 14px; color: #999;">Após escanear e realizar o pagamento, click em "Doação Realizada"</p>
+                    </div>
+
+                    <!-- Formulário Cartão -->
+                    <div id="form-cartao" style="display: none; margin-bottom: 40px;">
+                        <div style="display: grid; gap: 20px;">
+                            <div>
+                                <label style="display: block; font-size: 14px; color: #333; margin-bottom: 8px; font-weight: 600;">Número do Cartão</label>
+                                <input type="text" id="numero-cartao" placeholder="0000 0000 0000 0000" maxlength="19" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 14px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                <div>
+                                    <label style="display: block; font-size: 14px; color: #333; margin-bottom: 8px; font-weight: 600;">Validade</label>
+                                    <input type="text" id="validade-cartao" placeholder="MM/AA" maxlength="5" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 14px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                                </div>
+                                <div>
+                                    <label style="display: block; font-size: 14px; color: #333; margin-bottom: 8px; font-weight: 600;">CVV</label>
+                                    <input type="text" id="cvv-cartao" placeholder="123" maxlength="4" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 14px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                                </div>
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 14px; color: #333; margin-bottom: 8px; font-weight: 600;">Nome do Titular</label>
+                                <input type="text" id="titular-cartao" placeholder="Nome como aparece no cartão" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 14px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 20px;">
+                        <button class="btn btn-secondary" onclick="passoAnterior('dados')" style="flex: 1; padding: 14px;">
+                            ← Voltar
+                        </button>
+                        <button class="btn btn-primary" id="btn-finalizar-doacao" onclick="finalizarDoacao()" style="flex: 1; padding: 14px;">
+                            ✓ Doação Realizada
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-sections">
+                <!-- Sobre Nós / Ticket de Suporte -->
+                <div class="footer-about">
+                    <h3 class="footer-section-title">Abrir Ticket de Suporte</h3>
+                    <form id="ticket-form" style="margin-top: 15px;">
+                        <input type="text" id="ticket-assunto" placeholder="Assunto" required style="padding: 8px; margin-bottom: 10px; width: 100%; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+                        <textarea id="ticket-descricao" placeholder="Descrição" rows="3" required style="padding: 8px; margin-bottom: 10px; width: 100%; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; font-family: 'Poppins', sans-serif;"></textarea>
+                        <input type="email" id="ticket-email" placeholder="Seu email" required style="padding: 8px; margin-bottom: 10px; width: 100%; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+                        <button type="submit" class="submit-btn">Enviar Ticket</button>
+                    </form>
+                </div>
+
+                <!-- Contato -->
+                <div class="footer-contact">
+                    <h3 class="footer-section-title">Contate-nos</h3>
+                    <p class="footer-contact-item">
+                        <strong>Email:</strong>
+                        <a href="mailto:ApoiaSuporte@gmail.com">ApoiaSuporte@gmail.com</a>
+                    </p>
+                    <p class="footer-contact-item">
+                        <strong>Telefone:</strong>
+                        <a href="tel:+5511950028922">+55 11 95002-8922</a>
+                    </p>
+                </div>
+            </div>
+
+          
+            <div class="footer-divider"></div>
+
+            <!-- Logo e Copyright no final -->
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <img src="imagens/Apoia+logo.png" alt="Logo Apoia+" class="footer-logo">
+                    <span class="footer-text">Apoia+</span>
+                </div>
+                <p class="footer-copyright">&copy; 2025 Apoia+. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- Audio de celebração -->
+    <audio id="confetti-audio" src="imagens/confetti.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+    <script src="doacao.js"></script>
+</body>
+</html>
