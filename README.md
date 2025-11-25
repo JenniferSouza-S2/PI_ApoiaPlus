@@ -14,7 +14,7 @@ O **Apoia+** é uma plataforma web desenvolvida com o objetivo de **conectar e i
 
 ---
 
-## 💻 Tecnologias Utilizadas (Stack)
+## 💻 Tecnologias Utilizadas
 
 | Componente | Tecnologia | Finalidade |
 | :--- | :--- | :--- |
